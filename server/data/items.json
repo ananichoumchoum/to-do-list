@@ -1,0 +1,9 @@
+[
+  { "id": "2", "listname": "todo", "copy": "Take out the trash again" },
+  { "id": "3", "listname": "inprogress", "copy": "Take dog on a walk" },
+  {
+    "id": "9b25de3d-6f54-45a0-896a-27e7f3c47249",
+    "listname": "inprogress",
+    "copy": "testing post"
+  }
+]
