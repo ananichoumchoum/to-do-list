@@ -1,19 +1,33 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
+import "./Header.scss"
 
 const Header = () => {
-  const api_url = "https://zenquotes.io/api/quotes/";
+  const [quote, setQuote] = useState();
+  const [author, setAuthor] = useState();
+  const API_URL = "https://zenquotes.io/api/quotes/";
 
   async function getQuote() {
-    const getRequest = await axios.get("https://zenquotes.io/api/quotes/");
-    const data = getRequest.json()
-    console.log(data);
+    const getRequest = await axios.get(`${API_URL}`);
+    const quote = getRequest.data[0].q;
+    const author = getRequest.data[0].a;
+    setQuote(quote);
+    setAuthor(author);
+    console.log(getRequest.data[0].q);
   }
 
-  getQuote();
+  useEffect(() => {
+    getQuote();
+    const intervalId = setInterval(() => {
+      getQuote();
+    }, 10000);
+    return () => clearInterval(intervalId);
+  }, [])
 
   return (
-    <div>
-      <h1>Quote</h1>
+    <div className="header">
+      <h1 className="header__title">{quote}</h1>
+      <p className="header__subtitle">{author}</p>
     </div>
   );
 };
