@@ -3,16 +3,8 @@
     "id": "1",
     "name": "To Do List",
     "items": [
-      {
-        "comment_id": "00522bc0-52cd-47bf-b990-695e101f1590",
-        "list_id": "1",
-        "body": "Empty list"
-      },
-      {
-        "comment_id": "ec079480-0686-461f-ac4d-c98fea9f2d57",
-        "list_id": "1",
-        "body": "Test Item"
-      }
+      { "comment_id": "1", "list_id": "1", "body": "First item in progress" },
+      { "comment_id": "2", "list_id": "1", "body": "Second item in progress" }
     ]
   },
   {

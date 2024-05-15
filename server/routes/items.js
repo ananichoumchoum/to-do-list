@@ -49,6 +49,7 @@ router.post("/:listId", (req, res) => {
 });
 
 router.delete("/:listId/:itemId", (req, res) => {
+  console.log(req);
   const requestedListId = req.params.listId
   const requestedItemId = req.params.itemId
   const items = readItems();
