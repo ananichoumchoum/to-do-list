@@ -4,7 +4,6 @@ import axios from "axios";
 
 const ToDoList = ({ toDoList, setToDoList }) => {
   const handleOnClick = (event) => {
-    console.log(event);
     async function deleteItem() {
       const deleteRequest = await axios.delete(
         `http://localhost:8080/1/${event}`
@@ -13,7 +12,7 @@ const ToDoList = ({ toDoList, setToDoList }) => {
       const listRequest = await axios.get("http://localhost:8080/1/items");
       setToDoList(listRequest.data);
     }
-    // deleteItem();
+    deleteItem();
   };
 
   return (
