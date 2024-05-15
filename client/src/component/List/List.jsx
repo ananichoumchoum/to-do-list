@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ToDoList from "../SingleList/ToDoList";
 import InProgressList from "../SingleList/InProgressList";
+import './Lists.scss'
+import DoneList from "../SingleList/DoneList";
 
 const List = () => {
   const [toDoList, setToDoList] = useState();
@@ -29,9 +31,10 @@ const List = () => {
   }
 
   return (
-    <div>
+    <div className="lists">
       <ToDoList toDoList={toDoList} setToDoList={setToDoList} />
       <InProgressList inProgressList={inProgressList} setInProgressList={setInProgressList} />
+      <DoneList inProgressList={inProgressList} setInProgressList={setInProgressList}/>
     </div>
   );
 };

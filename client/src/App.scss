@@ -5,4 +5,23 @@ body, html {
     margin: 0;
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
+    height: 100%;
+    width: 100%;
 }
+
+.app-container {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .light-mode {
+    background-image: url('./assets/images/background-light1.jpg');
+  }
+  
+  .dark-mode {
+    background-image: url('./assets/images/background1.jpg');
+  }
+  

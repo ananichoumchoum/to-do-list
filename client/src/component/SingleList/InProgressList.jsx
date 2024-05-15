@@ -18,17 +18,19 @@ const InProgressList = ({inProgressList, setInProgressList}) => {
 
 
   return (
+    <div className="column">
     <div className="column__wrapper">
     <h2 className="column__title">In Progress List</h2>
       <ul className="column__list">
         {inProgressList.map((item) => (
           <li key={item.comment_id} className="column__item">
             <input type="checkbox" className="column__item-copy"/>
-            {item.body}
+            <span className="column__item-text">{item.body}</span>
             <button onClick={() => handleOnClick(item.comment_id)} className="column__item-button"><FaTrash /></button>
           </li>
         ))}
       </ul>
+    </div>
     </div>
   )
 }
