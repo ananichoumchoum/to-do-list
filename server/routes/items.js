@@ -37,7 +37,7 @@ router.get("/:listId/items", (req, res) => {
 
 router.post("/:listId", (req, res) => {
   const newItem = {
-    id: uuid.v4(),
+    comment_id: uuid.v4(),
     list_id: req.params.listId,
     body: req.body.body
   }

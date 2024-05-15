@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "./AddCard.scss"
 
 const AddCard = ({ setToDoList }) => {
   const [item, setItem] = useState("");
@@ -9,7 +10,6 @@ const AddCard = ({ setToDoList }) => {
       list_id: 1,
       body: item,
     };
-    console.log(itemData);
     const postRequest = await axios.post(`http://localhost:8080/1`, itemData);
     const listRequest = await axios.get("http://localhost:8080/1/items");
     setToDoList(listRequest.data);
@@ -26,8 +26,8 @@ const AddCard = ({ setToDoList }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input
+    <form onSubmit={handleFormSubmit} className="form">
+      <input className="form__input"
         type="text"
         placeholder="Add item"
         name="item"

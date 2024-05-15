@@ -31,7 +31,7 @@ const List = () => {
   return (
     <div>
       <ToDoList toDoList={toDoList} setToDoList={setToDoList} />
-      <InProgressList inProgressList={inProgressList} />
+      <InProgressList inProgressList={inProgressList} setInProgressList={setInProgressList} />
     </div>
   );
 };

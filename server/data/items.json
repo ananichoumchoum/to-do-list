@@ -1,1 +1,26 @@
-[{"id":"1","name":"To Do List","items":[{"comment_id":"2","list_id":"1","body":"Second item in to do"},{"comment_id":"ef53fc4e-2830-4951-8217-dc0aba6a61a6","list_id":"1","body":"Third item in todo"},{"id":"bcbb9022-33d9-45a0-b838-77b6c41933b2","list_id":"1","body":"hello"},{"id":"d36acee6-b193-4868-a451-553f5e28ef67","list_id":"1","body":"hello"},{"id":"2a0b8cc9-3f9e-4336-8105-5adbd38f4bed","list_id":"1","body":"Helloo"},{"id":"d3f7bdb5-df44-4c13-bdfc-f2822e7f751b","list_id":"1","body":"testt"},{"id":"915815b9-9374-4a11-a484-a8e747b943f0","list_id":"1","body":"To DO"},{"id":"3a396bdc-6373-4ffd-9499-b7d320fae097","list_id":"1","body":"its working"},{"id":"3a3d4c49-c948-4dde-89cf-25741cc8a37e","list_id":"1","body":"testt"},{"id":"6846265b-6a4c-448a-98c6-0019f2279123","list_id":"1","body":"hellooo"}]},{"id":"2","name":"in_progress","items":[{"comment_id":"1","list_id":"2","body":"First item in progress"},{"comment_id":"2","list_id":"2","body":"Second item in progress"},{"id":"a1279dad-e0ca-440e-bcec-0221a3bb6c80","list_id":"2","body":"Third item in todo"}]}]
+[
+  {
+    "id": "1",
+    "name": "To Do List",
+    "items": [
+      {
+        "comment_id": "00522bc0-52cd-47bf-b990-695e101f1590",
+        "list_id": "1",
+        "body": "Empty list"
+      },
+      {
+        "comment_id": "ec079480-0686-461f-ac4d-c98fea9f2d57",
+        "list_id": "1",
+        "body": "Test Item"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "in_progress",
+    "items": [
+      { "comment_id": "1", "list_id": "2", "body": "First item in progress" },
+      { "comment_id": "2", "list_id": "2", "body": "Second item in progress" }
+    ]
+  }
+]
