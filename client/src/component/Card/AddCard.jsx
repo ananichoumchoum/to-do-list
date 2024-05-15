@@ -1,17 +1,18 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const Card = ({setList}) => {
+const AddCard = ({ setToDoList }) => {
   const [item, setItem] = useState("");
 
   async function postItem() {
     const itemData = {
-      listname: "inprogress",
-      copy: item
-    }
-    const postRequest = await axios.post("http://localhost:8080/", itemData);
-    const listRequest = await axios.get("http://localhost:8080/");
-    setList(listRequest.data);
+      list_id: 1,
+      body: item,
+    };
+    console.log(itemData);
+    const postRequest = await axios.post(`http://localhost:8080/1`, itemData);
+    const listRequest = await axios.get("http://localhost:8080/1/items");
+    setToDoList(listRequest.data);
     setItem("");
   }
 
@@ -37,4 +38,4 @@ const Card = ({setList}) => {
   );
 };
 
-export default Card;
+export default AddCard;

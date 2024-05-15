@@ -12,50 +12,53 @@ const readItems = () => {
 router.get("/", (req, res) => {
   const items = readItems();
   res.json(items);
-  console.log(items);
 });
-
-router.get("/:listname", (req, res) => {
-  const requestedList= req.params.listname;
+//get specific list 
+router.get("/:listId", (req, res) => {
+  const requestedList= req.params.listId;
   const items = readItems();
-  const list = items.filter(item => item.listname === requestedList );
+  const list = items.find(item => item.id === requestedList );
   if (list) {
     res.json(list);
   }
   res.sendStatus(404);
 });
 
-router.get("/:id", (req, res) => {
-  const requestedId = req.params.id;
+//get all items for specific list id
+router.get("/:listId/items", (req, res) => {
+  const requestedId = req.params.listId;
   const items = readItems();
-  const item = items.find(item => item.id === requestedId );
-  console.log(item.id);
-  if (item) {
-    res.json(item);
+  const list = items.find(item => item.id === requestedId );
+  if (list) {
+    res.json(list.items);
   }
   res.sendStatus(404);
 });
 
-router.post("/", (req, res) => {
+router.post("/:listId", (req, res) => {
   const newItem = {
     id: uuid.v4(),
-    listname: req.body.listname,
-    copy: req.body.copy
+    list_id: req.params.listId,
+    body: req.body.body
   }
   const items = readItems();
-  items.push(newItem);
+  const listIndex = items.findIndex(list => list.id === req.params.listId);
+  items[listIndex].items.push(newItem);
   fs.writeFileSync("./data/items.json", JSON.stringify(items));
   res.status(201).json(newItem);
 });
 
-router.delete("/:id", (req, res) => {
-  const requestedId = req.params.id
+router.delete("/:listId/:itemId", (req, res) => {
+  const requestedListId = req.params.listId
+  const requestedItemId = req.params.itemId
   const items = readItems();
-  const itemDelete = items.find((item) => item.id === requestedId)
-  const itemIndex = items.indexOf(itemDelete)
-  items.splice(itemIndex, 1)
+
+  const listIndex = items.findIndex(list => list.id === requestedListId);
+  const itemIndex = items[listIndex].items.findIndex(item => item.id === requestedItemId);
+
+  const deletedItem = items[listIndex].items.splice(itemIndex, 1)[0];
   fs.writeFileSync("./data/items.json", JSON.stringify(items));
-  res.json(itemDelete)
+  res.json(deletedItem);
 });
 
 

@@ -1,11 +1,11 @@
-import ItemList from '../../../components/List'
+import List from '../../component/List/List'
 import IconsTest from '../../component/IconsTest'
 import './Home.scss'
 function Home() {
 
   return (
     <>
-      <ItemList />
+      <List />
       <IconsTest/>
     </>
   )

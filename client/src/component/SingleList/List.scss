@@ -1,0 +1,28 @@
+.column {
+  display: flex;
+
+  &__wrapper {
+  background-color: #cfefff;
+  padding: 2rem;
+  margin: 2rem;
+  }
+
+  &__list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  &__item {
+   padding: 0.5rem;
+   margin-bottom: 0.5rem;
+   border: 2px solid #ffc6c6;
+   background-color: #fffdf6;
+  }
+
+  &__item-button {
+    border: none;
+    background-color: #fffdf6;
+    align-content: flex-end;
+  }
+
+}
