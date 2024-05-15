@@ -1,9 +1,1 @@
-[
-  { "id": "2", "listname": "todo", "copy": "Take out the trash again" },
-  { "id": "3", "listname": "inprogress", "copy": "Take dog on a walk" },
-  {
-    "id": "9b25de3d-6f54-45a0-896a-27e7f3c47249",
-    "listname": "inprogress",
-    "copy": "testing post"
-  }
-]
+[{"id":"2","listname":"todo","copy":"Take out the trash again"},{"id":"3","listname":"inprogress","copy":"Take dog on a walk"},{"id":"9b25de3d-6f54-45a0-896a-27e7f3c47249","listname":"inprogress","copy":"testing post"},{"id":"21e91f28-78f7-4d87-9b62-bce2a8aea1b7","listname":"inprogress","copy":"New item"}]
