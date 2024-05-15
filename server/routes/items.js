@@ -19,9 +19,9 @@ router.get("/:listId", (req, res) => {
   const items = readItems();
   const list = items.find(item => item.id === requestedList );
   if (list) {
-    res.json(list);
+    return res.json(list);
   }
-  res.sendStatus(404);
+  return res.sendStatus(404);
 });
 
 //get all items for specific list id
@@ -30,9 +30,9 @@ router.get("/:listId/items", (req, res) => {
   const items = readItems();
   const list = items.find(item => item.id === requestedId );
   if (list) {
-    res.json(list.items);
+    return res.json(list.items);
   }
-  res.sendStatus(404);
+  return res.sendStatus(404);
 });
 
 router.post("/:listId", (req, res) => {
@@ -45,21 +45,28 @@ router.post("/:listId", (req, res) => {
   const listIndex = items.findIndex(list => list.id === req.params.listId);
   items[listIndex].items.push(newItem);
   fs.writeFileSync("./data/items.json", JSON.stringify(items));
-  res.status(201).json(newItem);
+  return res.status(201).json(newItem);
 });
 
 router.delete("/:listId/:itemId", (req, res) => {
-  console.log(req);
-  const requestedListId = req.params.listId
-  const requestedItemId = req.params.itemId
+  const requestedListId = req.params.listId;
+  const requestedItemId = req.params.itemId;
   const items = readItems();
 
+
   const listIndex = items.findIndex(list => list.id === requestedListId);
-  const itemIndex = items[listIndex].items.findIndex(item => item.id === requestedItemId);
+  if (listIndex === -1) {
+    return res.status(404).json({ error: 'List not found' });
+  }
+
+  const itemIndex = items[listIndex].items.findIndex(item => item.comment_id === requestedItemId);
+  if (itemIndex === -1) {
+    return res.status(404).json({ error: 'Item not found' });
+  }
 
   const deletedItem = items[listIndex].items.splice(itemIndex, 1)[0];
   fs.writeFileSync("./data/items.json", JSON.stringify(items));
-  res.json(deletedItem);
+  return res.json(deletedItem);
 });
 
 
