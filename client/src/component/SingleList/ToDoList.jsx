@@ -1,15 +1,18 @@
 import "./List.scss";
+import { FaPlus, FaSearch, FaTrash, FaCut, FaEdit } from 'react-icons/fa';
 import AddCard from "../Card/AddCard";
 import axios from "axios";
 
 const ToDoList = ({ toDoList, setToDoList }) => {
-  const handleOnClick = (event) => {
+  const handleOnClick = (commentId) => {
     async function deleteItem() {
-      const deleteRequest = await axios.delete(
-        `http://localhost:8080/1/${event}`
-      );
-      const listRequest = await axios.get("http://localhost:8080/1/items");
-      setToDoList(listRequest.data);
+      try {
+        await axios.delete(`http://localhost:8080/1/${commentId}`);
+        const listRequest = await axios.get("http://localhost:8080/1/items");
+        setToDoList(listRequest.data);
+      } catch (error) {
+        console.error('Error deleting item:', error);
+      }
     }
     deleteItem();
   };
@@ -27,7 +30,7 @@ const ToDoList = ({ toDoList, setToDoList }) => {
                 onClick={() => handleOnClick(item.comment_id)}
                 className="column__item-button"
               >
-                Del
+              <FaTrash />
               </button>
             </li>
           ))}
