@@ -1,6 +1,6 @@
 @use 'styles/partials/typography' as *;
 
-body, html {
+body, html, #root {
     padding: 0;
     margin: 0;
     font-family: 'Nunito', sans-serif;
